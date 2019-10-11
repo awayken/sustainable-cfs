@@ -1,0 +1,23 @@
+{
+  "name": "sustainable-cfs",
+  "version": "1.0.0",
+  "description": "A landing page showcasing how to be sustainable at Carsforsale.",
+  "main": "index.js",
+  "scripts": {
+    "start": "es-dev-server --app-index index.html --node-resolve --watch --open",
+    "start:compatibility": "es-dev-server --compatibility all --app-index index.html --node-resolve --watch --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awayken/sustainable-cfs.git"
+  },
+  "author": "Miles Rausch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/awayken/sustainable-cfs/issues"
+  },
+  "homepage": "https://github.com/awayken/sustainable-cfs#readme",
+  "devDependencies": {
+    "es-dev-server": "^1.18.3"
+  }
+}
