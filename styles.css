@@ -80,8 +80,18 @@ select {
 
 /** # App styles */
 
+html,
 body {
+  background: #cfd9df;
+}
+
+body {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 50%, #cfd9df 100%);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a, a:link, a:visited {
+  color: currentColor;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -111,12 +121,67 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 75vh;
 }
 
+.tip {
+  --wrap-hue: #fffc;
+  --wrap-color: #333;
+
+  overflow: hidden;
+  position: relative;
+}
+
 .tip__wrap {
+  background: var(--wrap-hue);
+  color: var(--wrap-color);
   margin: 0 auto;
   max-width: 80rem;
   padding: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .tip__anchor {
-  color: currentColor;
 }
+
+.tip__background {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  object-fit: cover;
+}
+
+.tip__credit {
+  background: #000;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 4px 8px;
+  font-style: normal;
+  font-size: .8rem;
+  z-index: 1;
+}
+
+.tip--recycle {
+  --wrap-hue: #183e09cc;
+  --wrap-color: #ccc;
+}
+
+.tip--vessels {
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.tip--lunch {
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.tip--plants {
+  background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+}
+
+.tip--lightsout {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+  background-blend-mode: multiply,multiply;
+}
+
