@@ -80,6 +80,10 @@ select {
 
 /** # App styles */
 
+:root {
+  --base-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 html,
 body {
   background: #cfd9df;
@@ -87,7 +91,7 @@ body {
 
 body {
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 50%, #cfd9df 100%);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--base-font);
 }
 
 a, a:link, a:visited {
@@ -95,12 +99,13 @@ a, a:link, a:visited {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Hepta Slab', serif;
+  font-family: 'Hepta Slab', var(--base-font);
   font-weight: 400;
+  margin-top: 0;
 }
 
 .assist {
-  display: inline-block;
+  position: absolute;
   transform: translateY(-3em);
   transition: 100ms ease-in-out all;
 }
@@ -121,67 +126,101 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 75vh;
 }
 
+.header {
+  background: url("images/miles-rausch_carsforsale.jpg") center top fixed / cover;
+}
+
 .tip {
   --wrap-hue: #fffc;
   --wrap-color: #333;
 
+  background: var(--tip-background, var(--wrap-hue, #fffc));
+  display: grid;
+  grid-template-areas:
+      ". ."
+      "content ."
+      "footer footer"
+    ;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2em 1fr auto;
   overflow: hidden;
   position: relative;
+}
+
+.tip:nth-of-type(even) {
+  grid-template-areas:
+    ". ."
+    ". content"
+    "footer footer"
+  ;
+}
+
+.tip:nth-of-type(even) .tip__credit {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .tip__wrap {
   background: var(--wrap-hue);
   color: var(--wrap-color);
-  margin: 0 auto;
-  max-width: 80rem;
+  grid-area: content;
+  margin-bottom: auto;
+  margin-top: 2rem;
   padding: 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.tip__anchor {
-}
-
-.tip__background {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-  object-fit: cover;
 }
 
 .tip__credit {
   background: #000;
   color: #fff;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 4px 8px;
-  font-style: normal;
+  grid-area: footer;
   font-size: .8rem;
-  z-index: 1;
+  font-style: normal;
+  margin-left: auto;
+  padding: 4px 8px;
 }
 
 .tip--recycle {
+  --tip-background: url("images/lacey-williams-Jwh_k0K_QOM-unsplash.jpg") center center / cover;
   --wrap-hue: #183e09cc;
   --wrap-color: #ccc;
 }
 
 .tip--vessels {
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  --tip-background: url("images/amy-parkes-_IkXgxJZDWA-unsplash.jpg") center center / cover;
+  --wrap-hue: #552c22cc;
+  --wrap-color: #ccc;
 }
 
 .tip--lunch {
-  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  --tip-background: url("images/jarek-ceborski-yw3UaP-5ybM-unsplash.jpg") center center / cover;
+  --wrap-hue: #f1e2c6cc;
+  --wrap-color: #333;
 }
 
 .tip--plants {
-  background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+  --tip-background: url("images/katya-austin-4Vg6ez9jaec-unsplash.jpg") center center / cover;
+  --wrap-hue: #8a952bcc;
+  --wrap-color: #333;
 }
 
 .tip--lightsout {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-  background-blend-mode: multiply,multiply;
+  --tip-background: url("images/nikita-kachanovsky-OVbeSXRk_9E-unsplash.jpg") center center / cover;
+  --wrap-hue: #262e30cc;
+  --wrap-color: #ccc;
 }
 
+@media only screen and (min-width: 36em) {
+  .tip {
+    grid-template-areas:
+      ". ."
+      "content ."
+      "footer footer"
+    ;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tip__wrap {
+    margin-bottom: 2rem;
+    margin-top: auto;
+  }
+}
