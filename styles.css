@@ -92,7 +92,6 @@ body {
 body {
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 50%, #cfd9df 100%);
   font-family: var(--base-font);
-  scroll-snap-type: y mandatory;
 }
 
 a, a:link, a:visited {
@@ -114,12 +113,6 @@ h1, h2, h3, h4, h5, h6 {
 .assist:focus,
 .assist:active {
   transform: translateY(0);
-}
-
-.header,
-.tip,
-.footer {
-  scroll-snap-align: start;
 }
 
 .header,
