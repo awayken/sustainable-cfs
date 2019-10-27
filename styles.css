@@ -33,7 +33,6 @@ dd {
 /* Set core body defaults */
 body {
   min-height: 100vh;
-  scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -227,6 +226,14 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   font-weight: bold;
   text-align: middle;
+}
+
+.topper {
+  background: #fffc;
+  bottom: .5em;
+  padding: 4px;
+  position: fixed;
+  right: .5em;
 }
 
 @media only screen and (min-width: 40em) {
