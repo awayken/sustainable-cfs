@@ -92,6 +92,7 @@ body {
 body {
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 50%, #cfd9df 100%);
   font-family: var(--base-font);
+  scroll-snap-type: y mandatory;
 }
 
 a, a:link, a:visited {
@@ -116,6 +117,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header,
+.tip,
+.footer {
+  scroll-snap-align: start;
+}
+
+.header,
 .footer {
   padding: 1rem;
   text-align: center;
@@ -123,11 +130,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .header,
 .tip {
-  min-height: 75vh;
+  min-height: 100vh;
 }
 
 .header {
-  background: url("images/miles-rausch_carsforsale.jpg") center top fixed / cover;
+  background: url("images/miles-rausch_carsforsale.jpg") #4171b3 center bottom fixed / cover;
+}
+
+.header__wrap {
+  background: #fff6;
+  padding: 1em;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .tip {
@@ -145,6 +162,10 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-rows: 2em 1fr auto;
   overflow: hidden;
   position: relative;
+}
+
+.tip:last-of-type {
+  min-height: 95vh;
 }
 
 .tip:nth-of-type(even) {
@@ -209,7 +230,13 @@ h1, h2, h3, h4, h5, h6 {
   --wrap-color: #ccc;
 }
 
-@media only screen and (min-width: 36em) {
+.footer__phrase {
+  display: inline-block;
+  font-weight: bold;
+  text-align: middle;
+}
+
+@media only screen and (min-width: 40em) {
   .tip {
     grid-template-areas:
       ". ."
