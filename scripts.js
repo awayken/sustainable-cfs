@@ -1,3 +1,14 @@
+const dothises = document.querySelectorAll('.js-idothis');
+[...dothises].forEach(idothis => {
+    console.log(idothis)
+
+    idothis.addEventListener('click', e => {
+        idothis.innerHTML = '✅ I already do this!';
+        idothis.setAttribute('title', 'You rock!');
+        idothis.classList.add('tip__button--done');
+    })
+});
+
 class ScrollTopper {
     constructor(el) {
         this.el = el;
