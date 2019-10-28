@@ -1,0 +1,253 @@
+/** # Reset: https://hankchizljaw.com/wrote/a-modern-css-reset/ **/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/** # App styles */
+
+:root {
+  --base-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html,
+body {
+  background: #cfd9df;
+}
+
+body {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 50%, #cfd9df 100%);
+  font-family: var(--base-font);
+}
+
+a, a:link, a:visited {
+  color: currentColor;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Hepta Slab', var(--base-font);
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.assist {
+  position: absolute;
+  transform: translateY(-3em);
+  transition: 100ms ease-in-out all;
+}
+
+.assist:focus,
+.assist:active {
+  transform: translateY(0);
+}
+
+.header,
+.footer {
+  padding: 1rem;
+  text-align: center;
+}
+
+.header,
+.tip {
+  min-height: 100vh;
+}
+
+.header {
+  background: url("images/miles-rausch_carsforsale.jpg") #4171b3 center bottom fixed / cover;
+}
+
+.header__wrap {
+  background: #fff6;
+  padding: 1em;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tip {
+  --wrap-hue: #fffc;
+  --wrap-color: #333;
+
+  background: var(--tip-background, var(--wrap-hue, #fffc));
+  display: grid;
+  grid-template-areas:
+      ". ."
+      "content ."
+      "footer footer"
+    ;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2em 1fr auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.tip:last-of-type {
+  min-height: 95vh;
+}
+
+.tip:nth-of-type(even) {
+  grid-template-areas:
+    ". ."
+    ". content"
+    "footer footer"
+  ;
+}
+
+.tip:nth-of-type(even) .tip__credit {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.tip__wrap {
+  background: var(--wrap-hue);
+  color: var(--wrap-color);
+  grid-area: content;
+  margin-bottom: auto;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.tip__credit {
+  background: #000;
+  color: #fff;
+  grid-area: footer;
+  font-size: .8rem;
+  font-style: normal;
+  margin-left: auto;
+  padding: 4px 8px;
+}
+
+.tip--recycle {
+  --tip-background: url("images/lacey-williams-Jwh_k0K_QOM-unsplash.jpg") center center / cover;
+  --wrap-hue: #183e09cc;
+  --wrap-color: #ccc;
+}
+
+.tip--vessels {
+  --tip-background: url("images/amy-parkes-_IkXgxJZDWA-unsplash.jpg") center center / cover;
+  --wrap-hue: #552c22cc;
+  --wrap-color: #ccc;
+}
+
+.tip--lunch {
+  --tip-background: url("images/jarek-ceborski-yw3UaP-5ybM-unsplash.jpg") center center / cover;
+  --wrap-hue: #f1e2c6cc;
+  --wrap-color: #333;
+}
+
+.tip--plants {
+  --tip-background: url("images/katya-austin-4Vg6ez9jaec-unsplash.jpg") center center / cover;
+  --wrap-hue: #8a952bcc;
+  --wrap-color: #333;
+}
+
+.tip--lightsout {
+  --tip-background: url("images/nikita-kachanovsky-OVbeSXRk_9E-unsplash.jpg") center center / cover;
+  --wrap-hue: #262e30cc;
+  --wrap-color: #ccc;
+}
+
+.footer__phrase {
+  display: inline-block;
+  font-weight: bold;
+  text-align: middle;
+}
+
+.topper {
+  background: #fffc;
+  bottom: .5em;
+  padding: 4px;
+  position: fixed;
+  right: .5em;
+}
+
+@media only screen and (min-width: 40em) {
+  .tip {
+    grid-template-areas:
+      ". ."
+      "content ."
+      "footer footer"
+    ;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tip__wrap {
+    margin-bottom: 2rem;
+    margin-top: auto;
+  }
+}
