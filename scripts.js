@@ -1,4 +1,5 @@
 const dothises = document.querySelectorAll('.js-idothis');
+
 [...dothises].forEach(idothis => {
     console.log(idothis)
 
@@ -57,7 +58,11 @@ class ScrollTopper {
             window.scrollTo(0, 0);
         } else {
             this.setTopper(0, 0, this.intialHTML);
-            window.scrollTo(x, y);
+            window.scrollTo({
+              top: y,
+              left: x,
+              behavior: 'smooth'
+            });
         }
     }
 }
