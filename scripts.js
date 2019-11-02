@@ -1,3 +1,5 @@
+// # stage-1: Why doesn't our button work?
+
 const dothises = document.querySelectorAll('.js-idothis');
 
 [...dothises].forEach(idothis => {

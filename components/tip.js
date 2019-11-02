@@ -50,7 +50,9 @@ class CFSTip extends HTMLElement {
   // * Create ShadowDOM
   constructor() {
     console.log("CFSTip: Constructed!");
+
     super();
+
     this.content = this.innerHTML;
   }
 
@@ -62,7 +64,11 @@ class CFSTip extends HTMLElement {
   // * Render
   connectedCallback() {
     console.log("CFSTip: Connected!");
+
     this.render();
+
+    // # stage-1: Uncomment this to fix "I Do This" buttons
+    // this.iDoThis();
   }
 
   // ## disconnectedCallback
@@ -85,6 +91,21 @@ class CFSTip extends HTMLElement {
   }
 
   // # Custom Methods
+
+  // Custom method: I Do This!
+  iDoThis() {
+    const dothises = this.querySelectorAll(".js-idothis");
+
+    [...dothises].forEach(idothis => {
+      console.log(idothis);
+
+      idothis.addEventListener("click", e => {
+        idothis.innerHTML = "✅ I already do this!";
+        idothis.setAttribute("title", "You rock!");
+        idothis.classList.add("tip__button--done");
+      });
+    });
+  }
 
   // Custom method: render our component
   render() {
