@@ -19,5 +19,8 @@
   "homepage": "https://github.com/awayken/sustainable-cfs#readme",
   "devDependencies": {
     "es-dev-server": "^1.18.3"
+  },
+  "dependencies": {
+    "@polymer/paper-tooltip": "^3.0.1"
   }
 }
