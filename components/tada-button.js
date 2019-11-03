@@ -1,3 +1,6 @@
+// # stage-3: Importing a third-party component
+import "@polymer/paper-tooltip/paper-tooltip.js";
+
 class TadaButton extends HTMLElement {
   constructor() {
     super();
@@ -12,11 +15,18 @@ class TadaButton extends HTMLElement {
 
   attachEvents() {
     const button = this.root.querySelector("button");
+    const tooltip = this.root.querySelector("paper-tooltip");
 
     button.addEventListener("click", e => {
+      // # stage-3: Third-party components may have useful API methods
+      tooltip.hide();
+      tooltip.innerHTML = "You rock!";
+
       button.innerHTML = "✅ I already do this!";
-      button.setAttribute("title", "You rock!");
       button.classList.add("tip__button--done");
+
+      tooltip.updatePosition();
+      tooltip.show();
     });
   }
 
@@ -124,7 +134,11 @@ class TadaButton extends HTMLElement {
 
     const tmpl = `
         ${styles}
-        <p><button class="tip__button" title="Click this button if you do this already.">I Do This!</button></p>
+        <p>
+            <button id="idothis" class="tip__button">I Do This!</button>
+            <!-- # stage-3: Include it just like our own custom elements -->
+            <paper-tooltip for="idothis" animationDelay="150">Click this button if you do this already.</paper-tooltip>
+        </p>
     `;
 
     this.root.innerHTML = tmpl;
