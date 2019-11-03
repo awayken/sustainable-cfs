@@ -49,8 +49,6 @@ class CFSTip extends HTMLElement {
   // * Add event listeners
   // * Create ShadowDOM
   constructor() {
-    console.log("CFSTip: Constructed!");
-
     super();
 
     this.content = this.innerHTML;
@@ -63,20 +61,8 @@ class CFSTip extends HTMLElement {
   // * Fetch resources
   // * Render
   connectedCallback() {
-    console.log("CFSTip: Connected!");
-
     this.render();
-
-    // # stage-1: Uncomment this to fix "I Do This" buttons
-    // this.iDoThis();
-  }
-
-  // ## disconnectedCallback
-  //
-  // Element is removed from the DOM.
-  // * Do clean-up here
-  disconnectedCallback() {
-    console.log("CFSTip: Disconnected!");
+    this.iDoThis();
   }
 
   // ## attributeChangedCallback
@@ -86,7 +72,6 @@ class CFSTip extends HTMLElement {
   // * Must be listed in observedAttributes
   // * Process and render
   attributeChangedCallback(attrName, oldVal, newVal) {
-    console.log("CFSTip: Changed!");
     console.log(attrName, oldVal, newVal);
   }
 
@@ -109,8 +94,6 @@ class CFSTip extends HTMLElement {
 
   // Custom method: render our component
   render() {
-    console.log("CFSTip: Rendered!");
-
     // This is a custom function to make handling rendering easier
     const tmpl = `
         <section id="${this.type}" class="tip tip--${this.type}">

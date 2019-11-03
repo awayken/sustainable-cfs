@@ -229,23 +229,7 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 95vh;
 }
 
-/* # stage-1: Why doesn't this work? */
-.tip:nth-of-type(even) {
-  grid-template-areas:
-    ". ."
-    ". content"
-    "footer footer"
-  ;
-}
-
-.tip:nth-of-type(even) .tip__credit {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-/* Uncomment to fix styling */
-/* What's a better way? */
-/* cfs-tip:nth-of-type(even) .tip {
+cfs-tip:nth-of-type(even) .tip {
   grid-template-areas:
     ". ."
     ". content"
@@ -256,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
 cfs-tip:nth-of-type(even) .tip__credit {
   margin-left: 0;
   margin-right: auto;
-} */
+}
 
 .tip__wrap {
   background: var(--wrap-hue);
