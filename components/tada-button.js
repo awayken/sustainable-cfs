@@ -1,18 +1,8 @@
-// Helper variable for toggling shadow
-let turnOffTheLights = false;
-
-// # stage-2: Uncomment to make shadowy.
-// turnOffTheLights = true;
-
 class TadaButton extends HTMLElement {
   constructor() {
     super();
 
-    this.root = this;
-    if (turnOffTheLights) {
-        // Attach a shadow root to this custom element
-      this.root = this.attachShadow({ mode: "open" });
-    }
+    this.root = this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
@@ -31,10 +21,7 @@ class TadaButton extends HTMLElement {
   }
 
   render() {
-    let styles = ``;
-
-    if (turnOffTheLights) {
-      styles = `
+    const styles = `
                 <style>
                     /**
                      Shamelessly stolen from: https://daneden.github.io/animate.css/
@@ -134,7 +121,6 @@ class TadaButton extends HTMLElement {
                     }
                 </style>
             `;
-    }
 
     const tmpl = `
         ${styles}

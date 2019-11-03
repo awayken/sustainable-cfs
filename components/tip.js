@@ -1,5 +1,4 @@
-// Import our new <tada-button>
-import './tada-button';
+import "./tada-button";
 
 class CFSTip extends HTMLElement {
   static get observedAttributes() {

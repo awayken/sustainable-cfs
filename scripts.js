@@ -1,9 +1,3 @@
-// # stage-2: How does shadow DOM affect DOM operations?
-window.setTimeout(() => {
-    const idothese = document.querySelectorAll(".tip__button");
-    console.log(`Found ${idothese.length}.`, idothese.length === 0 ? 'Must be using shadow DOM.' : 'Same as always.');
-}, 1000);
-
 class ScrollTopper {
     constructor(el) {
         this.el = el;
