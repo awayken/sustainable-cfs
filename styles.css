@@ -251,6 +251,8 @@ cfs-tip:nth-of-type(even) .tip__credit {
   padding: 1rem;
 }
 
+/* # stage-2 */
+/* Why don't these styles work any longer? */
 .tip__button {
   display: block;
   margin: 1em auto;

@@ -1,18 +1,10 @@
-// # CFSTip Class
-//
-// Must extend HTMLElement to get DOM API access.
-// Use this to define the JavaScript API for your element.
-class CFSTip extends HTMLElement {
-  // # Attributes and Properties
+// Import our new <tada-button>
+import './tada-button';
 
-  // ## observedAttributes
-  //
-  // Tells browser which attributes you want to reflect.
-  // Whitelist here helps with performance.
+class CFSTip extends HTMLElement {
   static get observedAttributes() {
     return ["type", "heading", "credit-name", "credit-handle"];
   }
-  // Reflecting a change to this JS property to the DOM representation
   get type() {
     return this.getAttribute("type");
   }
@@ -25,7 +17,6 @@ class CFSTip extends HTMLElement {
   set heading(val) {
     this.setAttribute("heading");
   }
-  // Note the case change
   get creditName() {
     return this.getAttribute("credit-name");
   }
@@ -39,62 +30,17 @@ class CFSTip extends HTMLElement {
     this.setAttribute("credit-handle");
   }
 
-  // # Custom Element Reactions
-  // (lifecycle callbacks)
-
-  // ## Constructor
-  //
-  // Element is instantiated.
-  // * Set blank state
-  // * Add event listeners
-  // * Create ShadowDOM
   constructor() {
     super();
 
     this.content = this.innerHTML;
   }
 
-  // ## connectedCallback
-  //
-  // Element is inserted into the DOM.
-  // * Do major setup work here
-  // * Fetch resources
-  // * Render
   connectedCallback() {
     this.render();
-    this.iDoThis();
   }
 
-  // ## attributeChangedCallback
-  //
-  // Element's observed attribute has changed.
-  // * Some attribute was added, removed, updated, or replaced
-  // * Must be listed in observedAttributes
-  // * Process and render
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    console.log(attrName, oldVal, newVal);
-  }
-
-  // # Custom Methods
-
-  // Custom method: I Do This!
-  iDoThis() {
-    const dothises = this.querySelectorAll(".js-idothis");
-
-    [...dothises].forEach(idothis => {
-      console.log(idothis);
-
-      idothis.addEventListener("click", e => {
-        idothis.innerHTML = "✅ I already do this!";
-        idothis.setAttribute("title", "You rock!");
-        idothis.classList.add("tip__button--done");
-      });
-    });
-  }
-
-  // Custom method: render our component
   render() {
-    // This is a custom function to make handling rendering easier
     const tmpl = `
         <section id="${this.type}" class="tip tip--${this.type}">
             <div class="tip__wrap">
@@ -106,7 +52,7 @@ class CFSTip extends HTMLElement {
 
                 ${this.content}
 
-                <p><button class="js-idothis tip__button" title="Click this button if you do this already.">I Do This!</button></p>
+                <tada-button></tada-button>
             </div>
 
             <cite class="tip__credit">
@@ -122,10 +68,4 @@ class CFSTip extends HTMLElement {
   }
 }
 
-// # Define Custom Element
-//
-// Rules for element names:
-// * Must contain a dash
-// * Can only define each element once
-// * Cannot be self-closing
 window.customElements.define("cfs-tip", CFSTip);
