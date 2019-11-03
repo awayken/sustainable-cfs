@@ -1,3 +1,5 @@
+import './components/tip';
+
 class ScrollTopper {
     constructor(el) {
         this.el = el;
