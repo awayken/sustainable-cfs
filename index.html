@@ -10,7 +10,6 @@
     <body>
         <a class="assist " href="#main">Skip to content</a>
 
-        <!-- # stage-5: First cfs-header -->
         <cfs-header templateid="header" class="header">
             <h1 slot="heading">Sustainable CFS</h1>
 
@@ -24,7 +23,6 @@
         </cfs-header>
 
         <main id="main">
-            <!-- # stage-5: Second cfs-header -->
             <cfs-header templateid="header" class="main">
                 <h2 slot="heading">Our tips!</h2>
 
@@ -88,10 +86,8 @@
             </button>
         </template>
 
-        <!-- # stage-5: Let's put some slots into our template -->
         <template id="header">
             <style>
-                /* # stage-5: Scoped styles! */
                 :host {
                     display: block;
                 }
@@ -110,7 +106,6 @@
                     padding: 1em;
                 }
 
-                /* # stage-5: Adding some to make content matter */
                 .header__content {
                     border-top: 1px solid currentColor;
                     margin-top: 1em;

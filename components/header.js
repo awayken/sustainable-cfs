@@ -12,7 +12,6 @@ class CFSHeader extends HTMLElement {
   constructor() {
     super();
 
-    // # stage-5: This is it??
     const template = document.getElementById(this.templateid).content;
     this.attachShadow({ mode: "open" }).appendChild(template.cloneNode(true));
   }

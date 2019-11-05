@@ -127,7 +127,6 @@ h6 {
   transform: translateY(0);
 }
 
-/* # stage-5: Wait, why is this style here?? */
 .header {
   background: url("images/miles-rausch_carsforsale.jpg") #4171b3 center bottom fixed / cover;
 }
@@ -140,8 +139,6 @@ h6 {
 
 .main {
   background: #111;
-
-  /* # stage-5: Wait, this can leak through? */
   color: #fff;
 }
 
