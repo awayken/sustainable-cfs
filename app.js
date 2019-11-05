@@ -1,3 +1,4 @@
+import "./components/header";
 import "./components/tip";
 import "./components/scroll-topper";
 
