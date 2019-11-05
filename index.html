@@ -66,8 +66,21 @@
         </footer>
 
         <nav class="topper">
-            <a href="#top" class="js-scrollTop">Back to Top</a>
+            <scroll-topper templateid="scrollTop1"></scroll-topper>
+            <scroll-topper templateid="scrollTop2"></scroll-topper>
         </nav>
+
+        <template id="scrollTop1">
+            <a href="#top">{{message}}</a>
+        </template>
+
+        <template id="scrollTop2">
+            <button type="button">
+                ⏫
+                <strong>{{message}}</strong>
+                ⏬
+            </button>
+        </template>
 
         <!-- # stage-3: New inclusion technique -->
         <script type="module" src="app.js" async></script>
