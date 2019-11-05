@@ -65,11 +65,13 @@
             <small>This landing page was designed and coded by <span class="footer__phrase">Miles Rausch</span> using content collected from the <span class="footer__phrase">CFS Climate Club</strong>.</small>
         </footer>
 
+        <!-- # stage-4: Calling our components with unique template IDs -->
         <nav class="topper">
             <scroll-topper templateid="scrollTop1"></scroll-topper>
             <scroll-topper templateid="scrollTop2"></scroll-topper>
         </nav>
 
+        <!-- # stage-4: Defining two HTML templates, giving us freedom -->
         <template id="scrollTop1">
             <a href="#top">{{message}}</a>
         </template>
@@ -82,7 +84,6 @@
             </button>
         </template>
 
-        <!-- # stage-3: New inclusion technique -->
         <script type="module" src="app.js" async></script>
     </body>
 </html>

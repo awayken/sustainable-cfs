@@ -1,4 +1,5 @@
 class ScrollTopper extends HTMLElement {
+  // # stage-4: Observe our own attribute
   static get observedAttributes() {
     return ["templateid"];
   }
@@ -28,9 +29,10 @@ class ScrollTopper extends HTMLElement {
       }
     };
 
-    // stage-4: Get template, cloneNode and append to make it live
+    // # stage-4: Get template, cloneNode and append to make it live
     const template = document.getElementById(this.templateid);
     this.appendChild(template.content.cloneNode(true));
+
     // Since we swap out some of it, cache the template for reuse
     this.template = this.innerHTML;
   }
@@ -55,6 +57,8 @@ class ScrollTopper extends HTMLElement {
 
   setTopper(x, y) {
     this.whereToScroll = [x, y];
+
+    // # stage-4: Rerender every time we set the topper
     this.render();
   }
 
@@ -80,6 +84,7 @@ class ScrollTopper extends HTMLElement {
   }
 
   render() {
+    // # stage-4: Rendering now just replaces the message, wherever that is in the template
     if (this.isGoBack) {
       this.innerHTML = this.template.replace("{{message}}", "Back to Top");
     } else {
