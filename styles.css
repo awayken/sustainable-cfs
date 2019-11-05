@@ -80,7 +80,8 @@ select {
 /** # App styles */
 
 :root {
-  --base-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 html,
@@ -89,16 +90,28 @@ body {
 }
 
 body {
-  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 50%, #cfd9df 100%);
+  background-image: linear-gradient(
+    to top,
+    #cfd9df 0%,
+    #e2ebf0 50%,
+    #cfd9df 100%
+  );
   font-family: var(--base-font);
 }
 
-a, a:link, a:visited {
+a,
+a:link,
+a:visited {
   color: currentColor;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Hepta Slab', var(--base-font);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Hepta Slab", var(--base-font);
   font-weight: 400;
   margin-top: 0;
 }
@@ -114,29 +127,31 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
-.header,
-.footer {
-  padding: 1rem;
-  text-align: center;
-}
-
-.header,
-.tip {
-  min-height: 100vh;
-}
-
+/* # stage-5: Wait, why is this style here?? */
 .header {
   background: url("images/miles-rausch_carsforsale.jpg") #4171b3 center bottom fixed / cover;
-}
-
-.header__wrap {
-  background: #fff6;
-  padding: 1em;
 }
 
 .header__nav {
   display: flex;
   justify-content: space-evenly;
+  text-align: center;
+}
+
+.main {
+  background: #111;
+
+  /* # stage-5: Wait, this can leak through? */
+  color: #fff;
+}
+
+.footer {
+  padding: 1rem;
+  text-align: center;
+}
+
+.tip {
+  min-height: 100vh;
 }
 
 .tip {
@@ -146,10 +161,9 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--tip-background, var(--wrap-hue, #fffc));
   display: grid;
   grid-template-areas:
-      ". ."
-      "content ."
-      "footer footer"
-    ;
+    ". ."
+    "content ."
+    "footer footer";
   grid-template-columns: 1fr;
   grid-template-rows: 2em 1fr auto;
   overflow: hidden;
@@ -164,8 +178,7 @@ cfs-tip:nth-of-type(even) .tip {
   grid-template-areas:
     ". ."
     ". content"
-    "footer footer"
-  ;
+    "footer footer";
 }
 
 cfs-tip:nth-of-type(even) .tip__credit {
@@ -186,38 +199,43 @@ cfs-tip:nth-of-type(even) .tip__credit {
   background: #000;
   color: #fff;
   grid-area: footer;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-style: normal;
   margin-left: auto;
   padding: 4px 8px;
 }
 
 .tip--recycle {
-  --tip-background: url("images/lacey-williams-Jwh_k0K_QOM-unsplash.jpg") center center / cover;
+  --tip-background: url("images/lacey-williams-Jwh_k0K_QOM-unsplash.jpg") center
+    center / cover;
   --wrap-hue: #183e09cc;
   --wrap-color: #ccc;
 }
 
 .tip--vessels {
-  --tip-background: url("images/amy-parkes-_IkXgxJZDWA-unsplash.jpg") center center / cover;
+  --tip-background: url("images/amy-parkes-_IkXgxJZDWA-unsplash.jpg") center
+    center / cover;
   --wrap-hue: #552c22cc;
   --wrap-color: #ccc;
 }
 
 .tip--lunch {
-  --tip-background: url("images/jarek-ceborski-yw3UaP-5ybM-unsplash.jpg") center center / cover;
+  --tip-background: url("images/jarek-ceborski-yw3UaP-5ybM-unsplash.jpg") center
+    center / cover;
   --wrap-hue: #f1e2c6cc;
   --wrap-color: #333;
 }
 
 .tip--plants {
-  --tip-background: url("images/katya-austin-4Vg6ez9jaec-unsplash.jpg") center center / cover;
+  --tip-background: url("images/katya-austin-4Vg6ez9jaec-unsplash.jpg") center
+    center / cover;
   --wrap-hue: #8a952bcc;
   --wrap-color: #333;
 }
 
 .tip--lightsout {
-  --tip-background: url("images/nikita-kachanovsky-OVbeSXRk_9E-unsplash.jpg") center center / cover;
+  --tip-background: url("images/nikita-kachanovsky-OVbeSXRk_9E-unsplash.jpg")
+    center center / cover;
   --wrap-hue: #262e30cc;
   --wrap-color: #ccc;
 }
@@ -230,10 +248,10 @@ cfs-tip:nth-of-type(even) .tip__credit {
 
 .topper {
   background: #fffc;
-  bottom: .5em;
+  bottom: 0.5em;
   padding: 4px;
   position: fixed;
-  right: .5em;
+  right: 0.5em;
 }
 
 @media only screen and (min-width: 40em) {
@@ -241,8 +259,7 @@ cfs-tip:nth-of-type(even) .tip__credit {
     grid-template-areas:
       ". ."
       "content ."
-      "footer footer"
-    ;
+      "footer footer";
     grid-template-columns: 1fr 1fr;
   }
 

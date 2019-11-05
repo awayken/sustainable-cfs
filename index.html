@@ -10,55 +10,61 @@
     <body>
         <a class="assist " href="#main">Skip to content</a>
 
-        <header class="header">
-            <div class="header__wrap">
-                <h1>Sustainable CFS</h1>
+        <!-- # stage-5: First cfs-header -->
+        <cfs-header templateid="header" class="header">
+            <h1 slot="heading">Sustainable CFS</h1>
 
-                <nav class="header__nav">
-                    <a href="#recycle">Recycle</a>
-                    <a href="#vessels">Reusable Vessels</a>
-                    <a href="#lunch">Lunch Tips</a>
-                    <a href="#plants">Plants</a>
-                    <a href="#lightsout">Lights Out</a>
-                </nav>
-            </div>
-        </header>
+            <nav slot="content" class="header__nav">
+                <a href="#recycle">Recycle</a>
+                <a href="#vessels">Reusable Vessels</a>
+                <a href="#lunch">Lunch Tips</a>
+                <a href="#plants">Plants</a>
+                <a href="#lightsout">Lights Out</a>
+            </nav>
+        </cfs-header>
 
         <main id="main">
-            <cfs-tip type="recycle" heading="Recycle your containers" credit-name="Lacey
+            <!-- # stage-5: Second cfs-header -->
+            <cfs-header templateid="header" class="main">
+                <h2 slot="heading">Our tips!</h2>
+
+                <div slot="content">
+                    <cfs-tip type="recycle" heading="Recycle your containers" credit-name="Lacey
                     Williams" credit-handle="travelwithlace">
-                <p>Did you know that every break room has a recycling bin? It's the blue container near the first-aid kit. Just drop in
-                    your cans and bottles to recycle them. If you like helping kids in need, you can take an extra step and pull the tab
-                    off first and drop that into the Ronald McDonald's House Charity.</p>
-            </cfs-tip>
+                        <p>Did you know that every break room has a recycling bin? It's the blue container near the first-aid kit. Just drop in
+                            your cans and bottles to recycle them. If you like helping kids in need, you can take an extra step and pull the tab
+                            off first and drop that into the Ronald McDonald's House Charity.</p>
+                    </cfs-tip>
 
-            <cfs-tip type="vessels" heading="Use mugs and reusable water bottles" credit-name="Amy
-                    Parkes" credit-handle="the_sunshine_dreamers">
-                <p>Don't leave your favorite mug or thermos at home. Bring it to work. The coffee shop can make your favorite beverage
-                    in your own vessel. It's reusable, washable and shows off your fun side. Bring a reusable water bottle to keep
-                    hydrated throughout the day. The water fountains and fridges all offer cold, filtered water at any time of the day.
-                </p>
-            </cfs-tip>
+                    <cfs-tip type="vessels" heading="Use mugs and reusable water bottles" credit-name="Amy
+                            Parkes" credit-handle="the_sunshine_dreamers">
+                        <p>Don't leave your favorite mug or thermos at home. Bring it to work. The coffee shop can make your favorite beverage
+                            in your own vessel. It's reusable, washable and shows off your fun side. Bring a reusable water bottle to keep
+                            hydrated throughout the day. The water fountains and fridges all offer cold, filtered water at any time of the day.
+                        </p>
+                    </cfs-tip>
 
-            <cfs-tip type="lunch" heading="Use reusable utensils and breakroom towels" credit-name="Jarek
-                    Ceborski" credit-handle="jarson">
-                <p>Bringing lunch from home is a cost-effective and eco-friendly way to dine during the day. Bring your own metal
-                    utensils from home so that you can wash and reuse them instead of throwing away plastic ones. You can use the towels
-                    in the break room for drying, so you don't use any paper towels. The cloth towels also make great napkins.</p>
-            </cfs-tip>
+                    <cfs-tip type="lunch" heading="Use reusable utensils and breakroom towels" credit-name="Jarek
+                            Ceborski" credit-handle="jarson">
+                        <p>Bringing lunch from home is a cost-effective and eco-friendly way to dine during the day. Bring your own metal
+                            utensils from home so that you can wash and reuse them instead of throwing away plastic ones. You can use the towels
+                            in the break room for drying, so you don't use any paper towels. The cloth towels also make great napkins.</p>
+                    </cfs-tip>
 
-            <cfs-tip type="plants" heading="Grow live plants to improve air quality" credit-name="Katya
-                    Austin" credit-handle="katya">
-                <p>Liven up your desk with a live plant. They add some color to the area while also purifying the air. Many varieties
-                    require very little watering or sunlight making them perfect for the indoors.</p>
-            </cfs-tip>
+                    <cfs-tip type="plants" heading="Grow live plants to improve air quality" credit-name="Katya
+                            Austin" credit-handle="katya">
+                        <p>Liven up your desk with a live plant. They add some color to the area while also purifying the air. Many varieties
+                            require very little watering or sunlight making them perfect for the indoors.</p>
+                    </cfs-tip>
 
-            <cfs-tip type="lightsout" heading="Turn off the lights if you're the last to leave" credit-name="Nikita
-                    Kachanovsky" credit-handle="nkachanovskyyy">
-                <p>Many of our conference and break-out rooms see some sort of traffic during the day, but often the lights stay on well
-                    beyond the end of the meeting. Turn the lights off if you're the last one out, or if you walk by an empty room. The
-                    environment will thank you.</p>
-            </cfs-tip>
+                    <cfs-tip type="lightsout" heading="Turn off the lights if you're the last to leave" credit-name="Nikita
+                            Kachanovsky" credit-handle="nkachanovskyyy">
+                        <p>Many of our conference and break-out rooms see some sort of traffic during the day, but often the lights stay on well
+                            beyond the end of the meeting. Turn the lights off if you're the last one out, or if you walk by an empty room. The
+                            environment will thank you.</p>
+                    </cfs-tip>
+                </div>
+            </cfs-header>
         </main>
 
         <footer class="footer">
@@ -80,6 +86,46 @@
                 <strong>{{message}}</strong>
                 ⏬
             </button>
+        </template>
+
+        <!-- # stage-5: Let's put some slots into our template -->
+        <template id="header">
+            <style>
+                /* # stage-5: Scoped styles! */
+                :host {
+                    display: block;
+                }
+
+                .header {
+                    min-height: 100vh;
+                    padding: 1rem;
+                }
+
+                .header__heading {
+                    text-align: center;
+                }
+
+                .header__wrap {
+                    background: #fff6;
+                    padding: 1em;
+                }
+
+                /* # stage-5: Adding some to make content matter */
+                .header__content {
+                    border-top: 1px solid currentColor;
+                    margin-top: 1em;
+                    padding-top: 1em;
+                }
+            </style>
+            <header class="header">
+                <div class="header__wrap">
+                    <slot class="header__heading" name="heading">Heading</slot>
+
+                    <div class="header__content">
+                        <slot name="content">Content</slot>
+                    </div>
+                </div>
+            </header>
         </template>
 
         <script type="module" src="app.js" async></script>
