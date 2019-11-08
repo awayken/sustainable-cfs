@@ -17,26 +17,26 @@ class CFSTip extends HTMLElement {
     return this.getAttribute("type");
   }
   set type(val) {
-    this.setAttribute("type");
+    this.setAttribute("type", val);
   }
   get heading() {
     return this.getAttribute("heading");
   }
   set heading(val) {
-    this.setAttribute("heading");
+    this.setAttribute("heading", val);
   }
   // Note the case change
   get creditName() {
     return this.getAttribute("credit-name");
   }
   set creditName(val) {
-    this.setAttribute("credit-name");
+    this.setAttribute("credit-name", val);
   }
   get creditHandle() {
     return this.getAttribute("credit-handle");
   }
   set creditHandle(val) {
-    this.setAttribute("credit-handle");
+    this.setAttribute("credit-handle", val);
   }
 
   // # Custom Element Reactions
@@ -88,6 +88,10 @@ class CFSTip extends HTMLElement {
   attributeChangedCallback(attrName, oldVal, newVal) {
     console.log("CFSTip: Changed!");
     console.log(attrName, oldVal, newVal);
+
+    if (oldVal !== newVal) {
+      this.render();
+    }
   }
 
   // # Custom Methods
