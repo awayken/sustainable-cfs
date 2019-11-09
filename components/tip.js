@@ -8,25 +8,25 @@ class CFSTip extends HTMLElement {
     return this.getAttribute("type");
   }
   set type(val) {
-    this.setAttribute("type");
+    this.setAttribute("type", val);
   }
   get heading() {
     return this.getAttribute("heading");
   }
   set heading(val) {
-    this.setAttribute("heading");
+    this.setAttribute("heading", val);
   }
   get creditName() {
     return this.getAttribute("credit-name");
   }
   set creditName(val) {
-    this.setAttribute("credit-name");
+    this.setAttribute("credit-name", val);
   }
   get creditHandle() {
     return this.getAttribute("credit-handle");
   }
   set creditHandle(val) {
-    this.setAttribute("credit-handle");
+    this.setAttribute("credit-handle", val);
   }
 
   constructor() {
@@ -37,6 +37,12 @@ class CFSTip extends HTMLElement {
 
   connectedCallback() {
     this.render();
+  }
+
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    if (oldVal !== newVal) {
+      this.render();
+    }
   }
 
   render() {
